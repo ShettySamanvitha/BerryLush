@@ -16,39 +16,45 @@
       flex-direction: column;
     }
 
+    /* HEADER */
     header {
       background-color: #8b1e3f;
       padding: 18px 20px;
-      text-align: center;
       color: white;
     }
 
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
     .logo {
-      width: 180px;
-      max-width: 70vw;
+      width: 90px;
       height: auto;
-      display: block;
-      margin: 0 auto 10px;
-      border-radius: 12px;
+      border-radius: 10px;
     }
 
     header h1 {
       margin: 0;
       font-size: 48px;
       letter-spacing: 2px;
+      line-height: 1;
     }
 
     header p {
-      margin: 10px 0 0;
+      margin: 8px 0 0;
       font-size: 18px;
+      text-align: center;
     }
 
-    /* Main content grows so footer stays at bottom */
+    /* MAIN */
     main {
       flex: 1;
     }
 
-    /* MAIN AREA */
     .container {
       padding: 40px;
       display: flex;
@@ -56,7 +62,6 @@
       gap: 40px;
     }
 
-    /* TEXT AREA */
     .content {
       flex: 1;
       min-width: 520px;
@@ -65,17 +70,17 @@
     .description {
       font-size: 18px;
       line-height: 1.6;
-      margin: 0 0 14px;
+      margin: 0 0 12px;
     }
 
+    /* PRICE FIXED */
     .price {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: bold;
-      margin: 14px 0 0;
+      margin: 6px 0 0;
       color: #8b1e3f;
     }
 
-    /* IMAGE AREA */
     .image-wrap {
       flex: 0 0 320px;
     }
@@ -86,7 +91,6 @@
       height: auto;
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      display: block;
     }
 
     /* GALLERY */
@@ -109,10 +113,8 @@
     .gallery-grid img {
       width: 320px;
       max-width: 100%;
-      height: auto;
       border-radius: 16px;
       box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-      display: block;
     }
 
     footer {
@@ -137,18 +139,13 @@
       }
 
       .image-wrap {
-        flex: none;
         width: 100%;
         display: flex;
         justify-content: center;
       }
 
-      .gallery {
-        padding: 0 24px 28px;
-      }
-
-      .gallery-grid {
-        justify-content: center;
+      .header-inner {
+        flex-direction: column;
       }
     }
   </style>
@@ -157,10 +154,10 @@
 <body>
 
   <header>
-    <!-- Top logo image -->
-    <img src="./logo.jpeg" alt="BerryLush Logo" class="logo">
-
-    <h1>BerryLush</h1>
+    <div class="header-inner">
+      <h1>BerryLush</h1>
+      <img src="./logo.jpeg" alt="BerryLush Logo" class="logo">
+    </div>
     <p>Fresh Strawberry · Rich Chocolate · Pure Happiness</p>
   </header>
 
@@ -168,36 +165,25 @@
     <div class="container">
       <div class="content">
         <p class="description">
-          BerryLush is a signature dessert under the Cold Craving brand, crafted to offer a perfect blend of freshness, indulgence, and visual appeal.
-          Prepared using fresh, hand-selected strawberries, BerryLush highlights the natural sweetness and slight tang of the fruit, which is enhanced by
-          a generous coating of smooth, premium chocolate. Each serving is made fresh, ensuring high quality, rich flavour, and an irresistible aroma that
-          attracts customers instantly. The contrast between the juicy strawberries and the silky chocolate creates a balanced and satisfying dessert that
-          feels luxurious yet comforting.
-        </p>
-
-        <p class="description">
-          BerryLush is ideal as a quick sweet craving, a post-meal treat, or a sharing dessert, making it suitable for customers of all age groups.
-          Its attractive presentation, rich taste profile, and indulgent texture position BerryLush as a standout product of Cold Craving, helping the brand
-          create a strong identity centred on freshness, quality, and joyful dessert experiences.
-        </p>
+         BerryLush is crafted using freshly picked strawberries sourced straight from the farm, bursting with natural sweetness and freshness.Each strawberry is gently dipped in rich, melted hot chocolate, creating a perfect balance of warmth and indulgence.
+        The contrast of juicy, chilled fruit and silky chocolate offers a luxurious yet refreshing dessert experience.
+        BerryLush is a celebration of freshness and indulgence, served beautifully to satisfy every sweet craving.
 
         <div class="price">₹149 only</div>
       </div>
 
-      <!-- Product image stays on the right -->
       <div class="image-wrap">
         <img src="./BerryLush1.jpeg" alt="BerryLush Product Image" class="product-image">
       </div>
     </div>
 
-    <!-- Bottom images above footer -->
     <section class="gallery">
       <h2>Fresh Ingredients</h2>
       <div class="gallery-grid">
-        <img src="./BerryLush3.jpg" alt="Fresh strawberries image 1">
-        <img src="./BerryLush4.jpg" alt="Fresh strawberries image 2">
-        <img src="./BerryLush5.jpg" alt="Fresh strawberries image 3">
-        <img src="./BerryLush6.jpg" alt="Fresh strawberries image 4">
+        <img src="./BerryLush3.jpg">
+        <img src="./BerryLush4.jpg">
+        <img src="./BerryLush5.jpg">
+        <img src="./BerryLush6.jpg">
       </div>
     </section>
   </main>
@@ -208,5 +194,3 @@
 
 </body>
 </html>
-
-
