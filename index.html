@@ -23,18 +23,20 @@
       color: white;
     }
 
-    .header-inner {
+    /* Make header have left text block + right logo */
+    .header-bar {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .logo {
-      width: 90px;
-      height: auto;
-      border-radius: 10px;
+    /* Title + tagline as one block on the left */
+    .header-text {
+      text-align: center;
+      flex: 1;
     }
 
     header h1 {
@@ -47,7 +49,14 @@
     header p {
       margin: 8px 0 0;
       font-size: 18px;
-      text-align: center;
+    }
+
+    /* Logo on far right */
+    .logo {
+      width: 110px;
+      height: auto;
+      border-radius: 10px;
+      flex: 0 0 auto;
     }
 
     /* MAIN */
@@ -56,10 +65,12 @@
     }
 
     .container {
-      padding: 40px;
+      padding: 32px 40px 16px; /* reduced bottom padding */
       display: flex;
       align-items: flex-start;
       gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .content {
@@ -70,10 +81,10 @@
     .description {
       font-size: 18px;
       line-height: 1.6;
-      margin: 0 0 12px;
+      margin: 0 0 10px;
     }
 
-    /* PRICE FIXED */
+    /* Price: less spacing */
     .price {
       font-size: 22px;
       font-weight: bold;
@@ -83,19 +94,25 @@
 
     .image-wrap {
       flex: 0 0 320px;
+      display: flex;
+      justify-content: flex-end;
     }
 
+    /* Make product image shorter */
     .product-image {
       width: 320px;
-      max-width: 100%;
-      height: auto;
+      height: 260px;           /* ✅ controls height */
+      object-fit: cover;       /* ✅ crops nicely, no stretching */
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      display: block;
     }
 
-    /* GALLERY */
+    /* GALLERY: pull it up (remove extra top space) */
     .gallery {
-      padding: 0 40px 40px;
+      padding: 8px 40px 40px;  /* ✅ small top padding */
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .gallery h2 {
@@ -111,10 +128,13 @@
     }
 
     .gallery-grid img {
-      width: 320px;
+      width: 280px;            /* slightly smaller so they fit better */
       max-width: 100%;
+      height: 180px;           /* equal height for all */
+      object-fit: cover;
       border-radius: 16px;
       box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+      display: block;
     }
 
     footer {
@@ -127,6 +147,16 @@
 
     /* MOBILE */
     @media (max-width: 900px) {
+      .header-bar {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .header-text {
+        text-align: center;
+      }
+
       .container {
         flex-direction: column;
         align-items: center;
@@ -140,12 +170,27 @@
 
       .image-wrap {
         width: 100%;
-        display: flex;
         justify-content: center;
       }
 
-      .header-inner {
-        flex-direction: column;
+      .product-image {
+        width: 100%;
+        max-width: 420px;
+        height: 260px;
+      }
+
+      .gallery {
+        padding: 10px 24px 28px;
+      }
+
+      .gallery-grid {
+        justify-content: center;
+      }
+
+      .gallery-grid img {
+        width: 100%;
+        max-width: 420px;
+        height: 200px;
       }
     }
   </style>
@@ -154,20 +199,26 @@
 <body>
 
   <header>
-    <div class="header-inner">
-      <h1>BerryLush</h1>
+    <div class="header-bar">
+      <div class="header-text">
+        <h1>BerryLush</h1>
+        <p>Fresh Strawberry · Rich Chocolate · Pure Happiness</p>
+      </div>
+
+      <!-- Logo on far right of header -->
       <img src="./logo.jpeg" alt="BerryLush Logo" class="logo">
     </div>
-    <p>Fresh Strawberry · Rich Chocolate · Pure Happiness</p>
   </header>
 
   <main>
     <div class="container">
       <div class="content">
         <p class="description">
-         BerryLush is crafted using freshly picked strawberries sourced straight from the farm, bursting with natural sweetness and freshness.Each strawberry is gently dipped in rich, melted hot chocolate, creating a perfect balance of warmth and indulgence.
-        The contrast of juicy, chilled fruit and silky chocolate offers a luxurious yet refreshing dessert experience.
-        BerryLush is a celebration of freshness and indulgence, served beautifully to satisfy every sweet craving.
+          BerryLush is crafted using freshly picked strawberries sourced straight from the farm, bursting with natural sweetness and freshness.
+          Each strawberry is gently dipped in rich, melted hot chocolate, creating a perfect balance of warmth and indulgence.
+          The contrast of juicy, chilled fruit and silky chocolate offers a luxurious yet refreshing dessert experience.
+          BerryLush is a celebration of freshness and indulgence, served beautifully to satisfy every sweet craving.
+        </p>
 
         <div class="price">₹149 only</div>
       </div>
@@ -180,10 +231,10 @@
     <section class="gallery">
       <h2>Fresh Ingredients</h2>
       <div class="gallery-grid">
-        <img src="./BerryLush3.jpg">
-        <img src="./BerryLush4.jpg">
-        <img src="./BerryLush5.jpg">
-        <img src="./BerryLush6.jpg">
+        <img src="./BerryLush3.jpg" alt="Fresh strawberries 1">
+        <img src="./BerryLush4.jpg" alt="Fresh strawberries 2">
+        <img src="./BerryLush5.jpg" alt="Fresh strawberries 3">
+        <img src="./BerryLush6.jpg" alt="Fresh strawberries 4">
       </div>
     </section>
   </main>
