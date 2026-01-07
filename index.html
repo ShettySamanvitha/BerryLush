@@ -11,13 +11,25 @@
       font-family: Arial, Helvetica, sans-serif;
       background: linear-gradient(to right, #ffdde1, #ee9ca7);
       color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
       background-color: #8b1e3f;
-      padding: 20px;
+      padding: 18px 20px;
       text-align: center;
       color: white;
+    }
+
+    .logo {
+      width: 180px;
+      max-width: 70vw;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
+      border-radius: 12px;
     }
 
     header h1 {
@@ -27,8 +39,13 @@
     }
 
     header p {
-      margin-top: 10px;
+      margin: 10px 0 0;
       font-size: 18px;
+    }
+
+    /* Main content grows so footer stays at bottom */
+    main {
+      flex: 1;
     }
 
     /* MAIN AREA */
@@ -39,49 +56,62 @@
       gap: 40px;
     }
 
-    /* TEXT AREA (make it take maximum space) */
+    /* TEXT AREA */
     .content {
-      flex: 1;                 /* 🔴 takes all remaining width */
-      min-width: 520px;        /* 🔴 prevents early wrapping */
+      flex: 1;
+      min-width: 520px;
     }
 
     .description {
       font-size: 18px;
       line-height: 1.6;
-      margin: 0;               /* removes extra top gap */
+      margin: 0 0 14px;
     }
 
     .price {
       font-size: 24px;
       font-weight: bold;
-      margin: 18px 0 12px;
+      margin: 14px 0 0;
       color: #8b1e3f;
-    }
-
-    .btn {
-      background-color: #8b1e3f;
-      color: white;
-      padding: 15px 30px;
-      text-decoration: none;
-      border-radius: 30px;
-      font-size: 18px;
-      display: inline-block;
-    }
-
-    .btn:hover {
-      background-color: #5f1028;
     }
 
     /* IMAGE AREA */
     .image-wrap {
-      flex: 0 0 300px;         /* 🔴 fixed 300px column */
+      flex: 0 0 320px;
     }
 
     .product-image {
-      width: 300px;
+      width: 320px;
+      max-width: 100%;
       height: auto;
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      display: block;
+    }
+
+    /* GALLERY */
+    .gallery {
+      padding: 0 40px 40px;
+    }
+
+    .gallery h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      color: #8b1e3f;
+    }
+
+    .gallery-grid {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-grid img {
+      width: 320px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
       display: block;
     }
 
@@ -90,7 +120,6 @@
       color: #ccc;
       text-align: center;
       padding: 15px;
-      margin-top: 50px;
       font-size: 14px;
     }
 
@@ -99,15 +128,27 @@
       .container {
         flex-direction: column;
         align-items: center;
+        padding: 24px;
       }
 
       .content {
-        min-width: 0;          /* allow normal wrapping on mobile */
+        min-width: 0;
         width: 100%;
       }
 
       .image-wrap {
         flex: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .gallery {
+        padding: 0 24px 28px;
+      }
+
+      .gallery-grid {
+        justify-content: center;
       }
     }
   </style>
@@ -116,33 +157,48 @@
 <body>
 
   <header>
+    <!-- Top logo image -->
+    <img src="./logo.jpg" alt="BerryLush Logo" class="logo">
+
     <h1>BerryLush</h1>
     <p>Fresh Strawberry · Rich Chocolate · Pure Happiness</p>
   </header>
 
-  <div class="container">
-    <div class="content">
-      <p class="description">
-        BerryLush is a signature dessert under the Cold Craving brand, crafted to offer a perfect blend of freshness, indulgence, and visual appeal.
-        Prepared using fresh, hand-selected strawberries, BerryLush highlights the natural sweetness and slight tang of the fruit, which is enhanced by
-        a generous coating of smooth, premium chocolate. Each serving is made fresh, ensuring high quality, rich flavour, and an irresistible aroma that 
-        attracts customers instantly. The contrast between the juicy strawberries and the silky chocolate creates a balanced and satisfying dessert that 
-        feels luxurious yet comforting. 
+  <main>
+    <div class="container">
+      <div class="content">
+        <p class="description">
+          BerryLush is a signature dessert under the Cold Craving brand, crafted to offer a perfect blend of freshness, indulgence, and visual appeal.
+          Prepared using fresh, hand-selected strawberries, BerryLush highlights the natural sweetness and slight tang of the fruit, which is enhanced by
+          a generous coating of smooth, premium chocolate. Each serving is made fresh, ensuring high quality, rich flavour, and an irresistible aroma that
+          attracts customers instantly. The contrast between the juicy strawberries and the silky chocolate creates a balanced and satisfying dessert that
+          feels luxurious yet comforting.
         </p>
-      
-      <p class="description">
-        BerryLush is ideal as a quick sweet craving, a post-meal treat, or a sharing dessert, making it suitable for
-        customers of all age groups. 
-        Its attractive presentation, rich taste profile, and indulgent texture position BerryLush as a standout product of Cold Craving, 
-        helping the brand create a strong identity centred on freshness, quality, and joyful dessert experiences.
-      </p>
 
-      <div class="price">₹149 only</div>
+        <p class="description">
+          BerryLush is ideal as a quick sweet craving, a post-meal treat, or a sharing dessert, making it suitable for customers of all age groups.
+          Its attractive presentation, rich taste profile, and indulgent texture position BerryLush as a standout product of Cold Craving, helping the brand
+          create a strong identity centred on freshness, quality, and joyful dessert experiences.
+        </p>
 
-    <div class="image-wrap">
-      <img src="./BerryLush1.jpeg" alt="BerryLush Product Image" class="product-image">
+        <div class="price">₹149 only</div>
+      </div>
+
+      <!-- Product image stays on the right -->
+      <div class="image-wrap">
+        <img src="./BerryLush1.jpeg" alt="BerryLush Product Image" class="product-image">
+      </div>
     </div>
-  </div>
+
+    <!-- Bottom images above footer -->
+    <section class="gallery">
+      <h2>Fresh Ingredients</h2>
+      <div class="gallery-grid">
+        <img src="./BerryLush3.jpg" alt="Fresh strawberries image 1">
+        <img src="./BerryLush4.jpg" alt="Fresh strawberries image 2">
+      </div>
+    </section>
+  </main>
 
   <footer>
     © 2026 BerryLush · Cold Carving
@@ -150,7 +206,3 @@
 
 </body>
 </html>
-
-
-
-
