@@ -23,7 +23,6 @@
       color: white;
     }
 
-    /* Make header have left text block + right logo */
     .header-bar {
       display: flex;
       align-items: center;
@@ -33,7 +32,6 @@
       margin: 0 auto;
     }
 
-    /* Title + tagline as one block on the left */
     .header-text {
       text-align: center;
       flex: 1;
@@ -51,7 +49,6 @@
       font-size: 18px;
     }
 
-    /* Logo on far right */
     .logo {
       width: 110px;
       height: auto;
@@ -59,13 +56,12 @@
       flex: 0 0 auto;
     }
 
-    /* MAIN */
     main {
       flex: 1;
     }
 
     .container {
-      padding: 32px 40px 16px; /* reduced bottom padding */
+      padding: 32px 40px 16px;
       display: flex;
       align-items: flex-start;
       gap: 40px;
@@ -78,17 +74,19 @@
       min-width: 520px;
     }
 
+    /* ✅ Remove bottom margin so price sticks to paragraph */
     .description {
       font-size: 18px;
       line-height: 1.6;
-      margin: 0 0 10px;
+      margin: 0;   /* ✅ no gap */
     }
 
-    /* Price: less spacing */
+    /* ✅ No gap above price */
     .price {
       font-size: 22px;
       font-weight: bold;
-      margin: 6px 0 0;
+      margin: 0;         /* ✅ no gap */
+      margin-top: 6px;   /* ✅ tiny breathing space only */
       color: #8b1e3f;
     }
 
@@ -98,19 +96,19 @@
       justify-content: flex-end;
     }
 
-    /* Make product image shorter */
+    /* ✅ Show FULL image (no cropping) */
     .product-image {
       width: 320px;
-      height: 260px;           /* ✅ controls height */
-      object-fit: cover;       /* ✅ crops nicely, no stretching */
+      height: 260px;              /* keep height */
+      object-fit: contain;        /* ✅ FULL image visible */
+      background: rgba(255,255,255,0.35); /* ✅ looks nice behind empty space */
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
       display: block;
     }
 
-    /* GALLERY: pull it up (remove extra top space) */
     .gallery {
-      padding: 8px 40px 40px;  /* ✅ small top padding */
+      padding: 8px 40px 40px;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -128,9 +126,9 @@
     }
 
     .gallery-grid img {
-      width: 280px;            /* slightly smaller so they fit better */
+      width: 280px;
       max-width: 100%;
-      height: 180px;           /* equal height for all */
+      height: 180px;
       object-fit: cover;
       border-radius: 16px;
       box-shadow: 0 8px 18px rgba(0,0,0,0.18);
@@ -150,10 +148,6 @@
       .header-bar {
         flex-direction: column;
         justify-content: center;
-        text-align: center;
-      }
-
-      .header-text {
         text-align: center;
       }
 
@@ -204,8 +198,6 @@
         <h1>BerryLush</h1>
         <p>Fresh Strawberry · Rich Chocolate · Pure Happiness</p>
       </div>
-
-      <!-- Logo on far right of header -->
       <img src="./logo.jpeg" alt="BerryLush Logo" class="logo">
     </div>
   </header>
@@ -234,7 +226,6 @@
         <img src="./BerryLush6.jpg" alt="Fresh strawberries 4">
         <img src="./BerryLush4.jpg" alt="Fresh strawberries 2">
         <img src="./BerryLush3.jpg" alt="Fresh strawberries 3">
-        
       </div>
     </section>
   </main>
@@ -245,7 +236,3 @@
 
 </body>
 </html>
-
-
-
-
