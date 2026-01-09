@@ -56,6 +56,7 @@
       flex: 0 0 auto;
     }
 
+    /* MAIN */
     main {
       flex: 1;
     }
@@ -74,39 +75,36 @@
       min-width: 520px;
     }
 
-    /* ✅ Remove bottom margin so price sticks to paragraph */
     .description {
       font-size: 18px;
       line-height: 1.6;
-      margin: 0;   /* ✅ no gap */
+      margin: 0; /* NO gap below paragraph */
     }
 
-    /* ✅ No gap above price */
     .price {
       font-size: 22px;
       font-weight: bold;
-      margin: 0;         /* ✅ no gap */
-      margin-top: 6px;   /* ✅ tiny breathing space only */
+      margin: 6px 0 0; /* tiny space only */
       color: #8b1e3f;
     }
 
     .image-wrap {
-      flex: 0 0 320px;
+      flex: 0 0 auto;
       display: flex;
       justify-content: flex-end;
     }
 
-    /* ✅ Show FULL image (no cropping) */
+    /* PRODUCT IMAGE — FULL IMAGE, NO BOX */
     .product-image {
-      width: 320px;
-      height: 260px;              /* keep height */
-      object-fit: contain;        /* ✅ FULL image visible */
-      background: rgba(255,255,255,0.35); /* ✅ looks nice behind empty space */
+      width: 360px;      /* slightly bigger */
+      height: auto;      /* full image */
+      object-fit: contain;
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
       display: block;
     }
 
+    /* GALLERY */
     .gallery {
       padding: 8px 40px 40px;
       max-width: 1200px;
@@ -147,7 +145,6 @@
     @media (max-width: 900px) {
       .header-bar {
         flex-direction: column;
-        justify-content: center;
         text-align: center;
       }
 
@@ -170,7 +167,7 @@
       .product-image {
         width: 100%;
         max-width: 420px;
-        height: 260px;
+        height: auto;
       }
 
       .gallery {
@@ -223,9 +220,9 @@
     <section class="gallery">
       <h2>Fresh Ingredients</h2>
       <div class="gallery-grid">
-        <img src="./BerryLush6.jpg" alt="Fresh strawberries 4">
-        <img src="./BerryLush4.jpg" alt="Fresh strawberries 2">
-        <img src="./BerryLush3.jpg" alt="Fresh strawberries 3">
+        <img src="./BerryLush6.jpg" alt="Fresh strawberries">
+        <img src="./BerryLush4.jpg" alt="Chocolate dipped strawberries">
+        <img src="./BerryLush3.jpg" alt="Farm fresh strawberries">
       </div>
     </section>
   </main>
